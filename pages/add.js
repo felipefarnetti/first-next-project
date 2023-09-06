@@ -10,7 +10,7 @@ export default function Add() {
       en: enWord.current.value,
       fr: frWord.current.value,
     };
-    fetch(`https://ff-first-next-project.vercel.app/api/vocapi`, {
+    fetch("https://" + process.env.VERCEL_URL + "/api/vocapi", {
       method: "POST",
       body: JSON.stringify(newWord),
       headers: {
