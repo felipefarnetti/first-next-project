@@ -21,6 +21,6 @@ export async function getStaticProps() {
   const data = await quote.json();
   return {
     props: { data },
-    revalidate: 20,
+    // revalidate: 20, - si on veut qu'il puisse faire le fetch seulement a chaque 20 secondes
   };
 }
