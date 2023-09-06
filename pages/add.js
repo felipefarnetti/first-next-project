@@ -10,7 +10,9 @@ export default function Add() {
       en: enWord.current.value,
       fr: frWord.current.value,
     };
-    fetch("https://" + process.env.VERCEL_URL + "/api/vocapi", {
+    const deploymentURL = window.location.origin; // Get the base URL of the current page
+    fetch(`${deploymentURL}/api/vocapi`, {
+      // Construct the full URL
       method: "POST",
       body: JSON.stringify(newWord),
       headers: {
