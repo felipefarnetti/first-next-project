@@ -11,7 +11,6 @@ export default function Add() {
       fr: frWord.current.value,
     };
     fetch("/api/vocapi", {
-      // Construct the full URL
       method: "POST",
       body: JSON.stringify(newWord),
       headers: {
