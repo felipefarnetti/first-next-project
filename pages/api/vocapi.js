@@ -10,6 +10,11 @@ export default function handler(req, res) {
   } else if (req.method === "POST") {
     const enWord = req.body.en;
     const frWord = req.body.fr;
+    if (!enWord || !frWord) {
+      return res
+        .status(400)
+        .json({ error: "Both 'en' and 'fr' fields are required." });
+    }
     const newWord = {
       en: enWord,
       fr: frWord,

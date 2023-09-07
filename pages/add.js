@@ -4,25 +4,35 @@ export default function Add() {
   const enWord = useRef();
   const frWord = useRef();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    // Make the function async
     e.preventDefault();
     const newWord = {
       en: enWord.current.value,
       fr: frWord.current.value,
     };
-    fetch("https://ff-first-next-project.vercel.app/api/vocapi", {
-      method: "POST",
-      body: JSON.stringify(newWord),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        enWord.current.value = "";
-        frWord.current.value = "";
-        // console.log(data);
+
+    try {
+      const response = await fetch("/api/vocapi", {
+        method: "POST",
+        body: JSON.stringify(newWord),
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+
+      const data = await response.json();
+      enWord.current.value = "";
+      frWord.current.value = "";
+      // You can now use the 'data' received from the API here
+      console.log(data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
