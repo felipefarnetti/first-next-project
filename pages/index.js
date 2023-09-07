@@ -29,7 +29,9 @@ export default function Home(props) {
 }
 
 export async function getStaticProps() {
-  const data = await import(`/data/vocabulary.json`);
+  const data = await import(
+    `https://ff-first-next-project.vercel.app/data/vocabulary.json`
+  );
   const array = data.vocabulary;
   return {
     props: { array },
