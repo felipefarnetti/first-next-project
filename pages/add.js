@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useRef } from "react";
 
 export default function Add() {
   const enWord = useRef();
@@ -10,7 +10,7 @@ export default function Add() {
       en: enWord.current.value,
       fr: frWord.current.value,
     };
-    fetch("/api/vocapi", {
+    fetch("https://ff-first-next-project.vercel.app/api/vocapi", {
       method: "POST",
       body: JSON.stringify(newWord),
       headers: {
