@@ -13,13 +13,16 @@ export default function Add() {
     };
 
     try {
-      const response = await fetch("/api/vocapi", {
-        method: "POST",
-        body: JSON.stringify(newWord),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://ff-first-next-project.vercel.app/api/vocapi",
+        {
+          method: "POST",
+          body: JSON.stringify(newWord),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Request failed");
@@ -29,7 +32,7 @@ export default function Add() {
       enWord.current.value = "";
       frWord.current.value = "";
       // You can now use the 'data' received from the API here
-      console.log(data);
+      // console.log(data);
     } catch (error) {
       console.error("Error:", error);
     }
