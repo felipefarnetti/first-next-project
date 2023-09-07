@@ -1,7 +1,7 @@
 {
   "routes": [
     {
-      "src": "/api/vocapi/*",
+      "src": "https://ff-first-next-project.vercel.app/api/vocapi/*",
       "methods": ["GET", "POST"],
       "headers": {
         "Access-Control-Allow-Origin": "*"
