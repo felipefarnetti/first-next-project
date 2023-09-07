@@ -13,16 +13,13 @@ export default function Add() {
     };
 
     try {
-      const response = await fetch(
-        "https://ff-first-next-project.vercel.app/api/vocapi",
-        {
-          method: "POST",
-          body: JSON.stringify(newWord),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await fetch("/api/vocapi", {
+        method: "POST",
+        body: JSON.stringify(newWord),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       if (!response.ok) {
         throw new Error("Request failed");
